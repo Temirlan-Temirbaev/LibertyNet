@@ -1,0 +1,90 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/strict",
+    "plugin:@typescript-eslint/stylistic",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:import/typescript"
+  ],
+  "ignorePatterns": [
+    "dist",
+    ".eslintrc.cjs"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react-refresh"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "prefer-const": "warn",
+    "quotes": "warn",
+    "jsx-quotes": [
+      "warn",
+      "prefer-double"
+    ],
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": true,
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "format": ["UPPER_CASE", "camelCase", "PascalCase"],
+        "modifiers": ["const"],
+        "selector": "variable"
+      },
+      {
+        "format": ["UPPER_CASE", "PascalCase"],
+        "selector": "enum"
+      },
+      {
+        "format": ["camelCase", "PascalCase"],
+        "selector": ["function"]
+      },
+      {
+        "format": ["PascalCase"],
+        "selector": ["class", "interface", "enumMember"]
+      }
+    ],
+    "@typescript-eslint/no-floating-promises" : ["warn"],
+    "@typescript-eslint/no-misused-promises" : ["off"],
+  }
+}

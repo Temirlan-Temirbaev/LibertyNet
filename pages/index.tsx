@@ -1,11 +1,12 @@
 import {NextPage} from "next";
+import WithLayout from "../shared/ui/layout/WithLayout";
 
 const Home: NextPage = () => {
   return (
-    <main>
+    <main className={"text-white"}>
       test
     </main>
   );
 };
 
-export default Home;
+export default WithLayout(Home);

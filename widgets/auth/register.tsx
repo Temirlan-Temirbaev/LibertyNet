@@ -105,8 +105,8 @@ export const RegisterWidget = () => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => setFile(e.target.files[0])}
       />
     )}
-    <UIButton className={"max-w-[368px] text-white font-light text-xl"} text={"Register"} />
-    <UIButton onClick={() => setAsNft(true)} className={"max-w-[368px] text-white font-light text-xl"} text={"Register (as NFT)"} />
+    <UIButton className={"max-w-[368px] text-white font-light text-xl bg-bluePrimary"} text={"Register"} />
+    <UIButton onClick={() => setAsNft(true)} className={"max-w-[368px] bg-bluePrimary text-white font-light text-xl"} text={"Register (as NFT)"} />
     <p className={"text-white tracking-wide"}>
       Already have an account? <Link href="/auth/login" className={"text-bluePrimary underline"}>Login</Link>
     </p>

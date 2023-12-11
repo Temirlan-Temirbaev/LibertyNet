@@ -66,7 +66,7 @@ export const LoginWidget = () => {
 
     <UIButton
       type={"submit"}
-      className={"max-w-[368px] text-white font-light text-xl"} text={"Login"} />
+      className={"max-w-[368px] text-white font-light text-xl bg-bluePrimary"} text={"Login"} />
     <p className={"text-white tracking-wider"}>
       Don't have an account? <Link href="/auth/register" className={"text-bluePrimary underline"}>Register</Link>
     </p>

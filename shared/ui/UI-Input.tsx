@@ -11,7 +11,7 @@ export const  UIInput = ({ className, error, additional, ...props }: UIInputProp
   return <><input
     {...props}
     {...additional}
-    className={`w-full h-[40px] bg-white border-default rounded-sm px-1.5 ${className}`}
+    className={`w-full h-[40px] border-default rounded-sm px-1.5 ${className}`}
   />
     {error && <UIErrorText error={String(error)}/>}
   </>;

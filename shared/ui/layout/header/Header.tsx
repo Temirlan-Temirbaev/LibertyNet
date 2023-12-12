@@ -16,7 +16,7 @@ export const Header = () => {
     <header className={"w-full h-[70px] px-4 flex flex-row items-center justify-between xl:px-8"}>
       <Logo onClick={() => router.push("/")} className={"text-2x§ xl xl:text-4xl cursor-pointer"} />
       <div className={"flex items-center gap-x-5"}>
-        <div className={"hidden lg:flex w-[400px] relative"}>
+        <div className={"hidden lg:flex min-w-[400px] w-[400px] relative"}>
           <Search
             value={search}
             setValue={setSearch}

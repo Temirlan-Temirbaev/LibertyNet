@@ -22,6 +22,7 @@
     "react": "^18.2",
     "react-dom": "^18.2",
     "react-hook-form": "^7.48.2",
+    "react-infinite-scroller": "^1.2.6",
     "react-loader-spinner": "^5.4.5",
     "react-query": "^3.39.3",
     "react-toastify": "^9.1.3"

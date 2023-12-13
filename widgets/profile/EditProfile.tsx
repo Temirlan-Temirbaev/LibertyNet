@@ -4,7 +4,6 @@ import { MediaRenderer, useAddress, useContractRead, useContractWrite, useStorag
 import { UIUploadFile } from "../../shared/ui/UI-UploadFile";
 import { UIButton } from "../../shared/ui/UI-Button";
 import { useMutation } from "@tanstack/react-query";
-import { User } from "../../interfaces/user";
 import { toast } from "react-toastify";
 import { ContractContext } from "../../app/ContractProvider";
 import { editProfile as editProfileApi } from "../../shared/api/profile/editProfile";
@@ -50,7 +49,10 @@ export const EditProfile = () => {
           ],
         });
       }
-      return editProfileApi(Object.assign(user, { nickname: nickName, avatar: url[0], address } as User));
+      return editProfileApi({
+        nickname: nickName === "" ? user?.nickname : nickName,
+        avatar: url[0] ? url[0] : user.avatar,
+      });
     },
     onSuccess: () => {
       toast.success("User was successfully updated");

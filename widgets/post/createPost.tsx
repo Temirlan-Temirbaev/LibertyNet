@@ -1,6 +1,6 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { ContractContext } from "../../app/ContractProvider";
-import { MediaRenderer, useAddress, useContractWrite, useStorageUpload } from "@thirdweb-dev/react";
+import { MediaRenderer, useContractWrite, useStorageUpload } from "@thirdweb-dev/react";
 import { UIInput } from "../../shared/ui/UI-Input";
 import { UIUploadFile } from "../../shared/ui/UI-UploadFile";
 import { UIButton } from "../../shared/ui/UI-Button";
@@ -26,8 +26,6 @@ export const CreatePost = () => {
   useEffect(() => {
     onChangeFile();
   }, [file]);
-
-  console.log(isNft);
 
   const onChangeFile = async () => {
     const uploadUrl = await uploadImage({

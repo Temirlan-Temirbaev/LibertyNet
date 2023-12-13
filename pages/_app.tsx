@@ -8,6 +8,7 @@ import QueryProvider from "../app/QueryProvider";
 import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import ThirdwebProvider from "../app/ThirdwebProvider";
+import { WalletGuard } from "../app/WalletGuard";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,19 +16,22 @@ function MyApp({ Component, pageProps }: AppProps) {
       <QueryProvider>
         <ContractProvider>
           <AuthProvider>
-            <ToastContainer />
-            <div className={"w-full h-screen bg-[rgb(22,22,22)] bg-none sm:bg-[url('/images/bg.png')]"} style={{
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "contain",
-            }}>
-              <Component {...pageProps} />
-            </div>
+            <WalletGuard>
+              <ToastContainer />
+              <div className={"w-full h-screen bg-[rgb(22,22,22)] bg-none sm:bg-[url('/images/bg.png')]"} style={{
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+              }}>
+                <Component {...pageProps} />
+              </div>
+            </WalletGuard>
           </AuthProvider>
         </ContractProvider>
       </QueryProvider>
     </ThirdwebProvider>
-  );
+  )
+    ;
 }
 
 export default MyApp;

@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { UIModal } from "../../UI-Modal";
 import { SIDEBAR_ROUTES } from "../../../constants/sidebarRoutes";
 import { Route } from "./Route";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 interface MenuProps {
   isOpen: boolean;
@@ -36,6 +37,7 @@ export const Menu = ({ isOpen, setIsOpen }: MenuProps) => {
       {SIDEBAR_ROUTES.map((route) => {
         return <Route route={route} key={`${route.label}-${route.path}`}/>;
       })}
+      <ConnectWallet className={"!flex !lg:hidden !w-full !h-[50px]"} />
     </div>
   </UIModal>;
 };

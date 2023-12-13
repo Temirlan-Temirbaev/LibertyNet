@@ -5,6 +5,7 @@ import { Logo } from "../Logo";
 import { Search } from "../../../../widgets/search/search";
 import { BurgerButton } from "../menu/BurgerButton";
 import { Menu } from "../menu/Menu";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 export const Header = () => {
 
@@ -22,6 +23,7 @@ export const Header = () => {
             setValue={setSearch}
           />
         </div>
+        <ConnectWallet className={"!hidden lg:flex !max-w-[20px] !h-[40px]"} />
         <BurgerButton
           firstLineStyles={{ className: isOpen ? "transform -rotate-45 mt-[9px] translate-x-4.75 translate-y-3.75" : "" }}
           secondLineStyles={{ className: isOpen ? "opacity-0" : "" }}

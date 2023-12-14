@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "../shared/api/post/getPosts";
 import { PostCard } from "../widgets/post/postCard";
 import InfiniteScroll from "react-infinite-scroller";
-import { ColorRing } from "react-loader-spinner";
+import { UILoader } from "../shared/ui/UI-Loader";
 
 const Home: NextPage = () => {
 
@@ -38,25 +38,11 @@ const Home: NextPage = () => {
         pageStart={page}
         loadMore={nextHandler}
         hasMore={hasMore}
-        loader={<ColorRing
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="blocks-loading"
-          wrapperClass="blocks-wrapper"
-          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-        />}
+        loader={<UILoader visible={true} />}
         useWindow={false}
       >
         <div className={"flex flex-col items-center gap-y-6"}>
-          {posts.length !== 0 ? posts.map(post => <PostCard key={post.id} post={post} />) : <ColorRing
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="blocks-loading"
-            wrapperClass="blocks-wrapper"
-            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-          />}
+          {posts.length !== 0 ? posts.map(post => <PostCard key={post.id} post={post} />) : <UILoader visible={true} />}
         </div>
       </InfiniteScroll>
     </div>

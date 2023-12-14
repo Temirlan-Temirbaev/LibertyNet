@@ -4,6 +4,7 @@ import { UIButton } from "../UI-Button";
 import { useMutation } from "@tanstack/react-query";
 import { createComment } from "../../api/comment/createComment";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 interface CommentSectionProps {
   postId: number;
@@ -11,6 +12,7 @@ interface CommentSectionProps {
 
 export const CommentSection = ({ postId }: CommentSectionProps) => {
   const [comment, setComment] = useState("");
+  const router = useRouter();
 
   const { mutate } = useMutation({
     mutationKey: ["createComment"],
@@ -30,7 +32,7 @@ export const CommentSection = ({ postId }: CommentSectionProps) => {
     mutate();
   };
 
-  return <div className={"hidden lg:flex gap-x-2 "}>
+  return <div className={`${router.pathname !== "/post/id/[id]" ? "hidden lg:flex" : "flex flex-col gap-y-3 lg:flex-row"} gap-x-2 `}>
     <UIInput
       onClick={e => e.stopPropagation()}
       type={"text"}

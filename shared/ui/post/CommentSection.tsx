@@ -42,7 +42,9 @@ export const CommentSection = ({ postId }: CommentSectionProps) => {
       text={"Comment"}
       onClick={(e: any) => handleButton(e)}
       disabled={comment.length === 0}
-      className={`blur-btn text-white font-bold hover:bg-opacity-70 !bg-bluePrimary w-2/5 ${comment.length === 0 ? "cursor-not-allowed" : ""}`}
+      className={`blur-btn text-white font-bold hover:bg-opacity-70 
+      !bg-bluePrimary w-1/5 
+      ${comment.length === 0 ? "cursor-not-allowed" : ""}`}
     />
   </div>;
 };

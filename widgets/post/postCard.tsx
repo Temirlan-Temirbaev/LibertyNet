@@ -20,7 +20,7 @@ export const PostCard = ({ post  }: PostCartProps) => {
     className={"blur-btn cursor-pointer" +
       " flex flex-col px-4 hover:bg-gray20 " +
       "lg:px-10 gap-y-5 pt-3 pb-10 rounded-3xl transition-all delay-200 ease" +
-      `min-h-[300px] w-full ${router.pathname !== "/post/id/[id]" ? "lg:3/5 xl:w-4/5" : "lg:w-11/12"}`}>
+      `min-h-[300px] w-full ${router.pathname !== "/post/id/[id]" ? "lg:min-w-[60vw]" : "lg:w-11/12"}`}>
     <UserInfo avatar={post.author.avatar} nickname={post.author.nickname} address={post.author.address} />
     <h1 className={"text-white break-all"}>{isTooLargeText ? `${post.content}...` : post.content}</h1>
     {

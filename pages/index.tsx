@@ -7,6 +7,7 @@ import { getPosts } from "../shared/api/post/getPosts";
 import { PostCard } from "../widgets/post/postCard";
 import InfiniteScroll from "react-infinite-scroller";
 import { UILoader } from "../shared/ui/UI-Loader";
+import { Search } from "../widgets/search/search";
 
 const Home: NextPage = () => {
 
@@ -33,6 +34,9 @@ const Home: NextPage = () => {
 
   return (
     <div className={"flex flex-col items-center gap-y-5"}>
+      <div className={"flex lg:hidden w-full mb-5"}>
+        <Search />
+      </div>
       <h1 className={"font-primary text-4xl font-black text-white"}>Recent Posts</h1>
       <InfiniteScroll
         pageStart={page}

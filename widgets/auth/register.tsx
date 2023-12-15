@@ -36,11 +36,11 @@ export const RegisterWidget = () => {
 
   const registration = useMutation({
     mutationFn: (data: User) => {
-      if (!asNft) registrationApi({ ...data, address: String(address), avatar: url[0] }).finally(() => {
+      if (!asNft) return registrationApi({ ...data, address: String(address), avatar: url[0] }).finally(() => {
         window.location.href = "/";
       });
       registrationApi({ ...data, address: String(address), avatar: url[0] });
-      uploadAsNft({args : [data.nickname, url[0]]}).finally(() => window.location.href = "/")
+      return uploadAsNft({args : [data.nickname, url[0]]}).finally(() => window.location.href = "/")
     },
     onError: (error: { response: { data: { errors: Record<string, any> } } }) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-argument
@@ -61,7 +61,7 @@ export const RegisterWidget = () => {
 
     setUrl(uploadUrl);
   };
-
+  console.log(asNft);
   const onSubmit: SubmitHandler<User> = (data: User) => (address && url[0]) && registration.mutate(data);
 
   const { nickname, password }: FieldErrors<RegistrationErrors> = formState.errors;
@@ -105,8 +105,11 @@ export const RegisterWidget = () => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => setFile(e.target.files[0])}
       />
     )}
+    <div className={"max-w-[368px] flex items-center gap-x-3 h-[80px] flex-row justify-start"}>
+      <input type={"checkbox"} id={"isPostNFT"} className={"w-[24px] h-[24px]"} checked={asNft} onChange={() => setAsNft(!asNft)}/>
+      <label className={"text-white font-light font-primary text-xl"} htmlFor={"isPostNFT"}>Register as NFT</label>
+    </div>
     <UIButton className={"max-w-[368px] text-white font-light text-xl bg-bluePrimary"} text={"Register"} />
-    <UIButton onClick={() => setAsNft(true)} className={"max-w-[368px] bg-bluePrimary text-white font-light text-xl"} text={"Register (as NFT)"} />
     <p className={"text-white tracking-wide"}>
       Already have an account? <Link href="/auth/login" className={"text-bluePrimary underline"}>Login</Link>
     </p>

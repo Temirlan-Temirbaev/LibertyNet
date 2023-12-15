@@ -10,7 +10,6 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 export const Header = () => {
 
   const router = useRouter();
-  const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   return <>
@@ -18,10 +17,7 @@ export const Header = () => {
       <Logo onClick={() => router.push("/")} className={"text-2x§ xl xl:text-4xl cursor-pointer"} />
       <div className={"flex items-center gap-x-5"}>
         <div className={"hidden lg:flex min-w-[400px] w-[400px] relative"}>
-          <Search
-            value={search}
-            setValue={setSearch}
-          />
+          <Search />
         </div>
         <ConnectWallet className={"!hidden lg:flex !max-w-[20px] !h-[40px]"} />
         <BurgerButton

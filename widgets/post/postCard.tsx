@@ -15,8 +15,14 @@ export const PostCard = ({ post  }: PostCartProps) => {
   const router = useRouter();
   const firstComment = post.comments[0];
 
+  const onPostClick = () => {
+    if (router.pathname !== "/post/[id]") {
+      router.push(`/post/id/${post.id}`)
+    }
+  }
+
   return <div
-    onClick={() => router.push(`post/id/${post.id}`)}
+    onClick={onPostClick}
     className={"blur-btn cursor-pointer" +
       " flex flex-col px-4 hover:bg-gray20 " +
       "lg:px-10 gap-y-5 pt-3 pb-10 rounded-3xl transition-all delay-200 ease" +

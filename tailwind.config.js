@@ -1,24 +1,24 @@
-/** @type {import('tailwindcss').Config} */
-const {COLORS} = require("./shared/constants/styles/colors");
-const {BORDERS} = require("./shared/constants/styles/borders");
+/** @type {import("tailwindcss").Config} */
+const { COLORS } = require("./shared/constants/styles/colors");
+const { BORDERS } = require("./shared/constants/styles/borders");
 module.exports = {
   content: ["./**/*.{jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        ...COLORS
+        ...COLORS,
       },
       blur: {
-        default: "15px"
+        default: "15px",
       },
       border: {
-        ...BORDERS
+        ...BORDERS,
       },
-      fontFamily : {
-        "primary" : "Avenir"
-      }
+      fontFamily: {
+        "primary": "var(--font-avenir)",
+      },
     },
   },
   plugins: [],
-}
+};
 

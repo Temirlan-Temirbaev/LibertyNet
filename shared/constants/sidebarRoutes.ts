@@ -10,6 +10,10 @@ export const SIDEBAR_ROUTES: SidebarRoute[] = [
     label: "Profile",
   },
   {
+    path: "/profile/edit",
+    label: "Edit Profile",
+  },
+  {
     path: "/post/create",
     label: "Create Post",
   },

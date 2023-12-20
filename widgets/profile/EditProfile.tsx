@@ -17,10 +17,14 @@ export const EditProfile = () => {
   const [nickName, setNickName] = useState("");
   const [file, setFile] = useState<File | undefined>(undefined);
   const [url, setUrl] = useState<string[]>([]);
-  const { mutateAsync: uploadImage } = useStorageUpload();
+  const [isNft, setIsNft] = useState(false);
+
   const address = useAddress();
+
+  const { mutateAsync: uploadImage } = useStorageUpload();
   const { data } = useContractRead(userContract, "getTokenByAddress", [address], { from: address });
   const { mutateAsync: editUserNFT } = useContractWrite(userContract, "updateNicknameAndAvatar");
+  const { mutateAsync: uploadAsNft } = useContractWrite(userContract, "mintUserNFT");
 
   useEffect(() => {
     onChangeFile();
@@ -49,6 +53,9 @@ export const EditProfile = () => {
           ],
         });
       }
+      if (!data && isNft) {
+        await uploadAsNft({ args: [nickName === "" ? user?.nickname : nickName, url[0] ? url[0] : user.avatar] });
+      }
       return editProfileApi({
         nickname: nickName === "" ? user?.nickname : nickName,
         avatar: url[0] ? url[0] : user.avatar,
@@ -75,6 +82,11 @@ export const EditProfile = () => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => setFile(e.target.files[0])}
       />
     )}
+    {!data && (<div className={"max-w-[368px] flex items-center gap-x-3 h-[80px] flex-row justify-start"}>
+      <input type={"checkbox"} id={"isPostNFT"} className={"w-[24px] h-[24px]"} checked={isNft}
+             onChange={() => setIsNft(!isNft)} />
+      <label className={"text-white font-light font-primary text-xl"} htmlFor={"isPostNFT"}>Post as NFT</label>
+    </div>)}
     <UIButton
       onClick={() => editProfile.mutate()}
       className={"blur-btn bg-gray20 " +

@@ -1970,6 +1970,11 @@
   dependencies:
     glob "7.1.7"
 
+"@next/font@^14.0.4":
+  version "14.0.4"
+  resolved "https://registry.npmjs.org/@next/font/-/font-14.0.4.tgz"
+  integrity sha512-anSlBJxaSlJ2S1mhfN/zddg8RsWvUCS6vMn9Sqjem3EukD6Z44lsj1lwXFdifUgwsJvw5Uf8MKupksAfRmDbeQ==
+
 "@next/swc-darwin-arm64@13.5.6":
   version "13.5.6"
   resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.5.6.tgz"

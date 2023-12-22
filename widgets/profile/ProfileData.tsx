@@ -43,7 +43,7 @@ export const ProfileData = () => {
     mutationKey: ["startConversation", address],
     mutationFn: () => startConversationApi(String(user?.address), String(userData?.address)),
     onError: () => toast.error("Something went wrong"),
-    onSuccess: (id) => router.push(`/chat/${id}`),
+    onSuccess: (id) => router.push(`/chat?conversationId=${id}`),
   });
 
   return <div className={"w-[300px] p-5 blur-btn bg-gray20 rounded-[20px] flex flex-col"}>
@@ -62,8 +62,7 @@ export const ProfileData = () => {
       <UIButton onClick={() => ban()} className={"blur-btn bg-bluePrimary rounded-lg"}>
         <p className={"text-white"}>Ban User</p>
       </UIButton>
-    )
-    }
+    )}
   </div>
     ;
 };

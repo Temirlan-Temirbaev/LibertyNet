@@ -21,8 +21,4 @@ export const SIDEBAR_ROUTES: SidebarRoute[] = [
     path: "/chat",
     label: "Chat",
   },
-  {
-    path: "/subscriptions",
-    label: "Subscriptions",
-  },
 ];

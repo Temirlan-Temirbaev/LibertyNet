@@ -8,15 +8,18 @@ import { useMutation } from "@tanstack/react-query";
 import { Post } from "../../interfaces/post";
 import { createPost } from "../../shared/api/post/createPost";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 export const CreatePost = () => {
 
   const { postContract } = useContext(ContractContext);
+  const router = useRouter()
 
   const [file, setFile] = useState<File | undefined>(undefined);
   const [content, setContent] = useState("");
   const [url, setUrl] = useState<string[]>([]);
   const [isNft, setIsNft] = useState(false);
+
 
   // TODO: after we test the subscription contract, add logic for this;
   const postAsNft = useContractWrite(postContract, "mintPostNFT");
@@ -46,8 +49,9 @@ export const CreatePost = () => {
         return createPost(data);
       }
     },
-    onSuccess : () => {
+    onSuccess : (post) => {
       toast.success("Post created successfully")
+      router.push(`/post/id/${post.id}`)
     },
     onError : (e) => {
       toast.error(`Error creating post ${JSON.stringify(e)}`)

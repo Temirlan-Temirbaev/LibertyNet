@@ -24,6 +24,7 @@ export const PostCard = ({ post  }: PostCartProps) => {
   return <div
     onClick={onPostClick}
     className={"blur-btn cursor-pointer" +
+        "min-w-[300px]" +
       " flex flex-col px-4 hover:bg-gray20 " +
       "lg:px-10 gap-y-5 pt-3 pb-10 rounded-3xl transition-all delay-200 ease" +
       `min-h-[300px] w-full ${router.pathname !== "/post/id/[id]" ? "lg:min-w-[60vw]" : "lg:w-11/12"}`}>

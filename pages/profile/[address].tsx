@@ -17,7 +17,7 @@ const Profile = () => {
     queryFn : () => getByAddress(address),
   })
 
-  return <div className={"flex flex-col items-center gap-y-5 md:flex-row flex-wrap gap-x-10"}>
+  return <div className={"flex flex-col items-center gap-y-5 md:flex-row md:items-start flex-wrap gap-x-10"}>
     <ProfileData />
     <div>
       <h1 className={"font-primary text-3xl text-white mb-5"}>Posts</h1>
